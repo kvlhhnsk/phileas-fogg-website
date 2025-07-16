@@ -125,7 +125,7 @@ const AuthorDetail = () => {
           <div className="container mx-auto px-6 text-center">
             <button 
               onClick={() => navigate("/authors")}
-              className="px-6 py-2 text-accent hover:text-accent/80 transition-colors duration-300 font-medium"
+              className="px-6 py-2 text-black hover:text-gray-600 transition-colors duration-300 font-medium"
             >
               ← Back to Authors
             </button>
