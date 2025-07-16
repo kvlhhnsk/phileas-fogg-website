@@ -29,8 +29,20 @@ const AuthorDetail = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       
+      {/* Back Navigation - Top */}
+      <section className="pt-20 pb-4 border-b border-border">
+        <div className="container mx-auto px-6">
+          <button 
+            onClick={() => navigate("/authors")}
+            className="text-accent hover:text-accent/80 transition-colors duration-300 font-medium"
+          >
+            ← Back to Authors
+          </button>
+        </div>
+      </section>
+
       {/* Main Content */}
-      <main className="pt-20">
+      <main>
         {/* Hero Section */}
         <section className="py-16 text-center border-b border-border">
           <div className="container mx-auto px-6">
