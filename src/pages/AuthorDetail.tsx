@@ -34,7 +34,7 @@ const AuthorDetail = () => {
         <div className="container mx-auto px-6">
           <button 
             onClick={() => navigate("/authors")}
-            className="text-accent hover:text-accent/80 transition-colors duration-300 font-medium"
+            className="text-black hover:text-gray-600 transition-colors duration-300 font-medium"
           >
             ← Back to Authors
           </button>
