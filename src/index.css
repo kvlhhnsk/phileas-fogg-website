@@ -35,6 +35,10 @@ All colors MUST be HSL.
     --accent: 0 0% 90%;
     --accent-foreground: 0 0% 10%;
 
+    /* Yellow accent for CTAs and highlights */
+    --yellow: 45 93% 58%;
+    --yellow-foreground: 0 0% 0%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
