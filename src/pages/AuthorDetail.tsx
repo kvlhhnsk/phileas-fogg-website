@@ -81,13 +81,12 @@ const AuthorDetail = () => {
                   {!isExpanded && fullText.length > 2 && (
                     <div className="bg-gradient-to-t from-background to-transparent h-6 -mt-6 relative z-10"></div>
                   )}
-                  <Button
-                    variant="ghost"
+                  <button
                     onClick={() => setIsExpanded(!isExpanded)}
-                    className="mt-4 text-accent hover:text-accent/80 p-0 h-auto font-medium"
+                    className="mt-4 px-4 py-2 bg-transparent text-black hover:bg-gray-600 hover:text-white transition-all duration-300 ease-in-out font-medium rounded-lg border-none outline-none"
                   >
                     {isExpanded ? 'Read Less' : 'Read More'}
-                  </Button>
+                  </button>
                 </div>
                 <Button className="px-8 py-3 bg-accent text-accent-foreground hover:bg-accent/90 transition-colors duration-300 rounded-lg font-medium">
                   Contact Author
