@@ -1,11 +1,23 @@
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Carousel from "@/components/Carousel";
+import { Button } from "@/components/ui/button";
 
 const AuthorDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const fullText = [
+    "This is a comprehensive biography and description of our featured author. Here you would find information about their background, writing style, published works, awards, and what makes their contribution to literature unique. This author has been an integral part of our collection with their distinctive voice and compelling storytelling abilities.",
+    "Born into a family of literary enthusiasts, this author discovered their passion for writing at an early age. Their journey through various literary forms and genres has shaped them into the versatile writer they are today. With influences ranging from classical literature to contemporary fiction, their work bridges traditional storytelling with modern narratives.",
+    "Throughout their career, they have received numerous accolades and recognition for their contributions to the literary world. Their works have been translated into multiple languages and have touched the hearts of readers across different cultures and backgrounds. The author's commitment to authentic storytelling and character development has earned them a dedicated following.",
+    "When not writing, they enjoy traveling to remote locations seeking inspiration for their next literary adventure. Their experiences in different cultures and landscapes often find their way into their narratives, adding depth and authenticity to their characters and settings. They believe that great stories come from genuine human experiences and connections."
+  ];
+
+  const visibleText = isExpanded ? fullText : fullText.slice(0, 2);
 
   const authorPhotos = [
     { id: "1", title: "Photo 1", description: "A beautiful showcase of the author's creative process" },
@@ -58,16 +70,28 @@ const AuthorDetail = () => {
                 <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
                   Author Name {id}
                 </h2>
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                  This is a comprehensive biography and description of our featured author. 
-                  Here you would find information about their background, writing style, 
-                  published works, awards, and what makes their contribution to literature unique. 
-                  This author has been an integral part of our collection with their distinctive 
-                  voice and compelling storytelling abilities.
-                </p>
-                <button className="px-8 py-3 bg-accent text-accent-foreground hover:bg-accent/90 transition-colors duration-300 rounded-lg font-medium">
+                <div className="mb-8">
+                  <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? 'max-h-none' : 'max-h-48'}`}>
+                    {visibleText.map((paragraph, index) => (
+                      <p key={index} className="text-lg text-muted-foreground mb-4 leading-relaxed">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                  {!isExpanded && fullText.length > 2 && (
+                    <div className="bg-gradient-to-t from-background to-transparent h-6 -mt-6 relative z-10"></div>
+                  )}
+                  <Button
+                    variant="ghost"
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="mt-4 text-accent hover:text-accent/80 p-0 h-auto font-medium"
+                  >
+                    {isExpanded ? 'Read Less' : 'Read More'}
+                  </Button>
+                </div>
+                <Button className="px-8 py-3 bg-accent text-accent-foreground hover:bg-accent/90 transition-colors duration-300 rounded-lg font-medium">
                   Contact Author
-                </button>
+                </Button>
               </div>
             </div>
           </div>
