@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CategoriesHeader from "@/components/CategoriesHeader";
+
 import { useCart } from "@/context/CartContext";
 import { useToast } from "@/hooks/use-toast";
 
@@ -79,7 +79,6 @@ const ProductDetail = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <CategoriesHeader />
       
       <main className="flex-1 pt-32">
         <div className="container mx-auto px-6 py-12">
