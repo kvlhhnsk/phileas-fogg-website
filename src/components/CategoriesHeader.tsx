@@ -8,7 +8,7 @@ const CategoriesHeader = () => {
     { name: "Ceramics & Pottery", path: "/shop?category=ceramics" },
     { name: "Textiles & Weaving", path: "/shop?category=textiles" },
     { name: "Wood & Metal", path: "/shop?category=wood-metal" },
-    { name: "Other", path: "/shop?category=other" }
+    { name: "Mixed Media", path: "/shop?category=mixed-media" }
   ];
 
   return (
