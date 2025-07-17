@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Filter } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CategoriesHeader from "@/components/CategoriesHeader";
 
 const Shop = () => {
   const navigate = useNavigate();
@@ -76,6 +77,7 @@ const Shop = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
+      <CategoriesHeader />
       
       <main className="flex-1 pt-20">
         <div className="container mx-auto px-6 py-12">
