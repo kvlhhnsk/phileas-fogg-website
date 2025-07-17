@@ -14,7 +14,7 @@ const CategoriesHeader = () => {
   console.log("CategoriesHeader rendering...");
   
   return (
-    <div className="w-full bg-red-500 border-b border-gray-300" style={{ padding: '10px 20px', minHeight: '60px', zIndex: 1000 }}>
+    <div className="fixed top-[73px] left-0 right-0 z-40 w-full bg-muted/95 backdrop-blur-sm border-b border-border px-5 py-3">
       <div className="container mx-auto">
         <nav className="flex justify-center space-x-8 md:space-x-12">
           {categories.map((category) => (
@@ -22,9 +22,9 @@ const CategoriesHeader = () => {
               key={category.name}
               onClick={() => navigate(category.path)}
               className={`
-                text-sm font-medium transition-colors duration-300 text-black hover:text-gray-600
+                text-sm font-medium transition-colors duration-300 text-foreground hover:text-primary
                 ${location.search.includes(category.path.split('=')[1]) 
-                  ? 'font-semibold underline' 
+                  ? 'font-semibold text-primary' 
                   : ''
                 }
               `}

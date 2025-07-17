@@ -80,7 +80,7 @@ const Shop = () => {
       <Header />
       <CategoriesHeader />
       
-      <main className="flex-1 pt-8">
+      <main className="flex-1 pt-32">
         <div className="container mx-auto px-6 py-12">
           {/* Main Heading Section */}
           <div className="text-center mb-12">
