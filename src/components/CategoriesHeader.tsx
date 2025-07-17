@@ -12,7 +12,7 @@ const CategoriesHeader = () => {
   ];
 
   return (
-    <div className="w-full bg-[#f5f5f5] border-b border-gray-200">
+    <div className="w-full bg-muted border-b border-border">
       <div className="container mx-auto px-5 py-2.5">
         <nav className="flex justify-center space-x-8 md:space-x-12">
           {categories.map((category) => (
@@ -20,7 +20,7 @@ const CategoriesHeader = () => {
               key={category.name}
               onClick={() => navigate(category.path)}
               className={`
-                text-sm font-medium transition-colors duration-300 text-black hover:text-gray-600 py-1
+                text-sm font-medium transition-colors duration-300 text-foreground hover:text-muted-foreground py-1
                 ${location.search.includes(category.path.split('=')[1]) 
                   ? 'text-primary font-semibold' 
                   : ''
