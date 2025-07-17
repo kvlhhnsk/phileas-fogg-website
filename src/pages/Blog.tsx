@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const Blog = () => {
+  const navigate = useNavigate();
   const featuredPost = {
     id: "featured",
     title: "Featured Adventure: Journey Through the Unknown",
@@ -35,7 +37,10 @@ const Blog = () => {
           {/* Featured Blog Post Section */}
           <div className="max-w-4xl mx-auto mb-20">
             <h2 className="text-3xl font-serif font-bold text-center mb-8 text-foreground">Featured Story</h2>
-            <article className="border border-border rounded-lg overflow-hidden shadow-lg hover:shadow-elegant transition-all duration-300 group cursor-pointer bg-card">
+            <article 
+              className="border border-border rounded-lg overflow-hidden shadow-lg hover:shadow-elegant transition-all duration-300 group cursor-pointer bg-card"
+              onClick={() => navigate('/blog/featured')}
+            >
               <div className="bg-muted h-80 flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
                 <span className="text-muted-foreground text-lg font-medium">Featured Blog Photo</span>
               </div>
@@ -47,7 +52,13 @@ const Blog = () => {
                 <p className="text-muted-foreground text-base mb-6 leading-relaxed">
                   {featuredPost.excerpt}
                 </p>
-                <button className="bg-primary text-primary-foreground px-6 py-3 rounded-md font-medium hover:bg-primary/90 transition-colors duration-300">
+                <button 
+                  className="bg-primary text-primary-foreground px-6 py-3 rounded-md font-medium hover:bg-primary/90 transition-colors duration-300"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate('/blog/featured');
+                  }}
+                >
                   Read More
                 </button>
               </div>
@@ -62,6 +73,7 @@ const Blog = () => {
                 <article 
                   key={post.id}
                   className="border border-border rounded-lg overflow-hidden hover:shadow-elegant transition-all duration-300 group cursor-pointer bg-card"
+                  onClick={() => navigate(`/blog/${post.id}`)}
                 >
                   <div className="bg-muted h-48 flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
                     <span className="text-muted-foreground">Cover Photo</span>
@@ -76,7 +88,13 @@ const Blog = () => {
                     </p>
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-muted-foreground">January {post.id}, 2024</span>
-                      <button className="text-primary hover:text-primary/80 transition-colors duration-300 font-medium text-sm">
+                      <button 
+                        className="text-primary hover:text-primary/80 transition-colors duration-300 font-medium text-sm"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/blog/${post.id}`);
+                        }}
+                      >
                         Read More →
                       </button>
                     </div>
