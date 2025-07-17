@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Filter } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CategoriesHeader from "@/components/CategoriesHeader";
 
 
 const Shop = () => {
@@ -77,8 +78,9 @@ const Shop = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
+      <CategoriesHeader />
       
-      <main className="flex-1 pt-32">
+      <main className="flex-1 pt-8">
         <div className="container mx-auto px-6 py-12">
           {/* Main Heading Section */}
           <div className="text-center mb-12">
