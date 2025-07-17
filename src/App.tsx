@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Shop from "./pages/Shop";
+import ProductDetail from "./pages/ProductDetail";
 import Authors from "./pages/Authors";
 import AuthorDetail from "./pages/AuthorDetail";
 import NotFound from "./pages/NotFound";
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/shop/product/:id" element={<ProductDetail />} />
           <Route path="/authors" element={<Authors />} />
           <Route path="/authors/:id" element={<AuthorDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
