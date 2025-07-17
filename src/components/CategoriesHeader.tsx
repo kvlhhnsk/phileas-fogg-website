@@ -14,7 +14,7 @@ const CategoriesHeader = () => {
   console.log("CategoriesHeader rendering...");
   
   return (
-    <div className="w-full bg-[#f5f5f5] border-b border-gray-300" style={{ padding: '10px 20px', minHeight: '60px' }}>
+    <div className="w-full bg-red-500 border-b border-gray-300" style={{ padding: '10px 20px', minHeight: '60px', zIndex: 1000 }}>
       <div className="container mx-auto">
         <nav className="flex justify-center space-x-8 md:space-x-12">
           {categories.map((category) => (
