@@ -12,18 +12,18 @@ const CategoriesHeader = () => {
   ];
 
   return (
-    <div className="w-full bg-muted/50 border-b border-border">
-      <div className="container mx-auto px-6 py-3">
-        <nav className="flex justify-center space-x-12">
+    <div className="w-full bg-[#f5f5f5] border-b border-gray-200">
+      <div className="container mx-auto px-5 py-2.5">
+        <nav className="flex justify-center space-x-8 md:space-x-12">
           {categories.map((category) => (
             <button
               key={category.name}
               onClick={() => navigate(category.path)}
               className={`
-                text-sm font-medium transition-colors duration-300
+                text-sm font-medium transition-colors duration-300 text-black hover:text-gray-600 py-1
                 ${location.search.includes(category.path.split('=')[1]) 
-                  ? 'text-primary' 
-                  : 'text-muted-foreground hover:text-foreground'
+                  ? 'text-primary font-semibold' 
+                  : ''
                 }
               `}
             >
