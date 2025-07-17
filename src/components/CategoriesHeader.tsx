@@ -14,7 +14,7 @@ const CategoriesHeader = () => {
   console.log("CategoriesHeader rendering...");
   
   return (
-    <div className="fixed top-[73px] left-0 right-0 z-40 w-full bg-muted/95 backdrop-blur-sm border-b border-border px-5 py-3">
+    <div className="fixed top-[65px] left-0 right-0 z-40 w-full bg-muted/95 backdrop-blur-sm border-b border-border px-5 py-3">
       <div className="container mx-auto">
         <nav className="flex justify-center space-x-8 md:space-x-12">
           {categories.map((category) => (
