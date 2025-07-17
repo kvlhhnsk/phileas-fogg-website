@@ -3,10 +3,15 @@ import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CategoriesHeader from "@/components/CategoriesHeader";
+import { useCart } from "@/context/CartContext";
+import { useToast } from "@/hooks/use-toast";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { addToCart } = useCart();
+  const { toast } = useToast();
   const [quantity, setQuantity] = useState(1);
   const [currentRelatedPage, setCurrentRelatedPage] = useState(0);
 
@@ -57,9 +62,24 @@ const ProductDetail = () => {
     }
   };
 
+  const handleAddToCart = () => {
+    for (let i = 0; i < quantity; i++) {
+      addToCart({
+        id: product.id as string,
+        name: product.name,
+        price: product.price
+      });
+    }
+    toast({
+      title: "Added to cart",
+      description: `${quantity} ${product.name}(s) added to your cart.`,
+    });
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
+      <CategoriesHeader />
       
       <main className="flex-1 pt-20">
         <div className="container mx-auto px-6 py-12">
@@ -112,7 +132,10 @@ const ProductDetail = () => {
               </div>
 
               {/* Add to Cart Button */}
-              <button className="w-full bg-primary text-primary-foreground px-8 py-4 rounded-md font-medium text-lg hover:bg-primary/90 transition-colors duration-300">
+              <button 
+                onClick={handleAddToCart}
+                className="w-full bg-primary text-primary-foreground px-8 py-4 rounded-md font-medium text-lg hover:bg-primary/90 transition-colors duration-300"
+              >
                 Add to Cart
               </button>
 
@@ -198,7 +221,15 @@ const ProductDetail = () => {
                       className="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition-colors duration-300"
                       onClick={(e) => {
                         e.stopPropagation();
-                        // Add to cart logic here
+                        addToCart({
+                          id: item.id.toString(),
+                          name: item.name,
+                          price: item.price
+                        });
+                        toast({
+                          title: "Added to cart",
+                          description: `${item.name} added to your cart.`,
+                        });
                       }}
                     >
                       Add to Cart

@@ -1,8 +1,11 @@
 import { useNavigate, useLocation } from "react-router-dom";
+import { ShoppingCart } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { itemCount } = useCart();
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -28,8 +31,8 @@ const Header = () => {
           </div>
 
           {/* Navigation - Right Side */}
-          <nav className="flex space-x-8">
-            {navItems.map((item) => (
+          <nav className="flex items-center space-x-8">
+            {navItems.slice(0, -1).map((item) => (
               <button
                 key={item.name}
                 onClick={() => navigate(item.path)}
@@ -49,6 +52,25 @@ const Header = () => {
                 {item.name}
               </button>
             ))}
+            
+            {/* Cart Icon with Badge */}
+            <button
+              onClick={() => navigate("/cart")}
+              className={`
+                relative p-2 transition-all duration-300
+                ${location.pathname === "/cart" 
+                  ? 'text-primary' 
+                  : 'text-muted-foreground hover:text-foreground'
+                }
+              `}
+            >
+              <ShoppingCart size={20} />
+              {itemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium">
+                  {itemCount}
+                </span>
+              )}
+            </button>
           </nav>
         </div>
       </div>
