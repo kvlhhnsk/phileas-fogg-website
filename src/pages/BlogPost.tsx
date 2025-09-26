@@ -18,6 +18,58 @@ const BlogPost = () => {
 
         The final stages of our journey lead us to vantage points that offer panoramic views of untouched landscapes. From these heights, one can truly appreciate the magnitude and beauty of our natural world. It's here that many travelers find not just stunning vistas, but a renewed sense of purpose and connection to the world around them.`
       },
+      // Exhibition Blog Posts
+      "exhibition-featured": {
+        title: "Artifacts of Wonder: A Journey Through Time",
+        content: `Step into our most ambitious exhibition yet, where rare artifacts and extraordinary discoveries from expeditions around the world come together to tell the story of human exploration and discovery. This carefully curated collection represents decades of adventure, research, and cultural exchange.
+
+        The exhibition begins with our earliest acquisition - a compass used by 19th-century explorers navigating uncharted territories. Each artifact tells a story, not just of the places they were found, but of the intrepid individuals who ventured into the unknown to bring these treasures to light.
+
+        Interactive displays allow visitors to experience the challenges faced by explorers throughout history. From navigating by the stars to surviving in extreme climates, each section provides immersive insights into the skills and courage required for successful expeditions.
+
+        The centerpiece of the exhibition features recently discovered artifacts from a remote archaeological site, displayed publicly for the first time. These remarkable finds shed new light on ancient civilizations and their sophisticated understanding of astronomy, mathematics, and engineering.`
+      },
+      "exhibition-1": {
+        title: "Mountain Peaks Collection: Scaling New Heights",
+        content: `Experience the thrill and beauty of high-altitude exploration through our comprehensive collection of mountain expedition artifacts, photography, and personal accounts from some of the world's most challenging climbs.
+
+        This exhibition showcases equipment evolution from early mountaineering attempts to modern climbing technology. Visitors can examine vintage ice axes, rope systems, and protective gear alongside contemporary equipment, understanding how technological advances have made previously impossible climbs achievable.
+
+        Stunning large-format photography captures the raw beauty and danger of mountain environments. Each image tells a story of perseverance, teamwork, and the relentless pursuit of reaching new heights despite seemingly impossible odds.
+
+        Personal journals and expedition logs provide intimate glimpses into the mindset of climbers facing extreme conditions. These first-hand accounts reveal the physical and psychological challenges that must be overcome to achieve success in the world's most demanding environments.`
+      },
+      "exhibition-2": {
+        title: "Ocean Depths Revealed: Maritime Exploration Treasures",
+        content: `Dive into the mysteries of maritime exploration through our extensive collection of underwater discoveries, nautical instruments, and deep-sea expedition artifacts that reveal the ocean's hidden secrets.
+
+        Our underwater archaeology section displays artifacts recovered from shipwrecks spanning several centuries. Each piece tells the story of maritime trade routes, naval history, and the brave souls who ventured across dangerous waters in pursuit of discovery and commerce.
+
+        Interactive marine biology displays showcase specimens and research findings from deep-sea expeditions. Visitors can explore the biodiversity of ocean environments and learn about the cutting-edge technology used to study life in the planet's most extreme underwater conditions.
+
+        The navigation instruments section features historical compasses, sextants, and charts used by explorers to navigate the world's oceans. These tools represent humanity's growing understanding of geography and our relationship with the sea as both highway and barrier.`
+      },
+      // Excursion Blog Posts
+      "excursion-featured": {
+        title: "Grand Expedition: Following Ancient Trade Routes",
+        content: `Join us on the adventure of a lifetime as we retrace the steps of ancient merchants and explorers along historic trade routes that connected civilizations and cultures across continents. This 21-day journey combines historical discovery with modern adventure travel.
+
+        Our expedition begins in bustling market towns that have served as trading posts for centuries. Here, we'll learn about the goods, ideas, and cultural exchanges that shaped the ancient world. Local historians and archaeologists will guide us through sites that remain largely unchanged since medieval times.
+
+        The middle section of our journey takes us through diverse landscapes - from mountain passes used by ancient caravans to river crossings that determined the fate of entire civilizations. We'll travel using traditional methods when possible, gaining authentic insights into the challenges faced by historical traders.
+
+        The final leg of our expedition reaches major historical centers where trade routes converged. In these locations, we'll explore museums, archaeological sites, and meet with local communities whose ancestors facilitated the cultural exchanges that shaped our modern world.`
+      },
+      "excursion-1": {
+        title: "Alpine Adventure Trek: Mountain Wilderness Expedition",
+        content: `Embark on a transformative 14-day journey through pristine alpine wilderness, where dramatic landscapes and challenging terrain provide the perfect setting for personal growth and natural discovery.
+
+        Our expedition begins with comprehensive preparation and acclimatization in base camp, where experienced guides share essential mountain skills including navigation, weather assessment, and safety protocols. This foundation ensures every participant can fully engage with the alpine environment.
+
+        Daily treks take us through diverse mountain ecosystems, from dense forest valleys to stark rocky peaks above the treeline. Each day presents new challenges and rewards, with opportunities to observe wildlife, study geology, and develop a deeper appreciation for mountain environments.
+
+        The culmination of our journey includes a multi-day traverse of a remote mountain range, camping under star-filled skies and experiencing the profound silence that only exists in truly wild places. This immersive experience often leads to lasting personal transformation and environmental awareness.`
+      },
       "1": {
         title: "Mountain Expedition Chronicles",
         content: `Experience the thrill of high-altitude adventure in this detailed chronicle of mountain expeditions. From base camps to summit attempts, discover what it takes to conquer some of the world's most challenging peaks.

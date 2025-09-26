@@ -14,6 +14,8 @@ import Cart from "./pages/Cart";
 import Authors from "./pages/Authors";
 import AuthorDetail from "./pages/AuthorDetail";
 import Checkout from "./pages/Checkout";
+import Exhibitions from "./pages/Exhibitions";
+import Excursions from "./pages/Excursions";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +30,8 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
+            <Route path="/exhibitions" element={<Exhibitions />} />
+            <Route path="/excursions" element={<Excursions />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/shop" element={<Shop />} />
