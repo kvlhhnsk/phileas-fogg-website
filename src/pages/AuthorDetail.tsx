@@ -101,7 +101,7 @@ const AuthorDetail = () => {
                   </button>
                 </div>
                 <Button 
-                  onClick={() => navigate("/shop")} // TODO: Filter by author when functionality is implemented
+                  onClick={() => navigate(`/shop/author/${id}`)}
                   className="px-8 py-3 bg-accent text-accent-foreground hover:bg-accent/90 transition-colors duration-300 rounded-lg font-medium"
                 >
                   Shop Author's Works

@@ -45,9 +45,20 @@ const Authors = () => {
                   </div>
                   
                   {/* Author Name */}
-                  <h3 className="text-xl font-serif font-semibold text-center group-hover:text-accent transition-colors duration-300">
+                  <h3 className="text-xl font-serif font-semibold text-center group-hover:text-accent transition-colors duration-300 mb-3">
                     {author.name}
                   </h3>
+                  
+                  {/* Shop Works Button */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(`/shop/author/${author.id}`);
+                    }}
+                    className="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors duration-300"
+                  >
+                    Shop Works
+                  </button>
                   
                   {/* Hover Effect Overlay */}
                   <div className="absolute inset-0 bg-accent/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

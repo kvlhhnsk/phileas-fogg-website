@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Filter } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,19 +8,42 @@ import CategoriesHeader from "@/components/CategoriesHeader";
 
 const Shop = () => {
   const navigate = useNavigate();
+  const { authorId, categoryId } = useParams();
   const [currentProductPage, setCurrentProductPage] = useState(0);
   const [currentMoreItemsPage, setCurrentMoreItemsPage] = useState(0);
 
-  const products = [
-    { id: 1, name: "Adventure Journal", price: "$24.99" },
-    { id: 2, name: "Vintage Compass", price: "$89.99" },
-    { id: 3, name: "Explorer's Map Set", price: "$34.99" },
-    { id: 4, name: "Travel Photography Book", price: "$45.99" },
-    { id: 5, name: "Leather Travel Bag", price: "$129.99" },
-    { id: 6, name: "Expedition Notebook", price: "$19.99" },
-    { id: 7, name: "World Atlas Collection", price: "$67.99" },
-    { id: 8, name: "Adventure Stories Bundle", price: "$39.99" },
+  // Authors data to match with Authors.tsx
+  const authors = Array.from({ length: 12 }, (_, i) => ({
+    id: i + 1,
+    name: `Author ${i + 1}`
+  }));
+
+  const allProducts = [
+    { id: 1, name: "Adventure Journal", price: "$24.99", authorId: 1 },
+    { id: 2, name: "Vintage Compass", price: "$89.99", authorId: 2 },
+    { id: 3, name: "Explorer's Map Set", price: "$34.99", authorId: 1 },
+    { id: 4, name: "Travel Photography Book", price: "$45.99", authorId: 3 },
+    { id: 5, name: "Leather Travel Bag", price: "$129.99", authorId: 4 },
+    { id: 6, name: "Expedition Notebook", price: "$19.99", authorId: 2 },
+    { id: 7, name: "World Atlas Collection", price: "$67.99", authorId: 5 },
+    { id: 8, name: "Adventure Stories Bundle", price: "$39.99", authorId: 3 },
   ];
+
+  const allMoreItems = [
+    { id: 9, name: "Vintage Postcards", price: "$14.99", authorId: 6 },
+    { id: 10, name: "Explorer's Kit", price: "$99.99", authorId: 1 },
+    { id: 11, name: "Adventure Calendar", price: "$22.99", authorId: 7 },
+    { id: 12, name: "Travel Journal Set", price: "$29.99", authorId: 8 },
+  ];
+
+  // Filter products based on author or category
+  const products = authorId 
+    ? allProducts.filter(product => product.authorId === parseInt(authorId))
+    : allProducts;
+  
+  const moreItems = authorId 
+    ? allMoreItems.filter(item => item.authorId === parseInt(authorId))
+    : allMoreItems;
 
   const categories = [
     { id: 1, name: "Travel Gear", description: "Essential items for your adventures" },
@@ -28,12 +51,6 @@ const Shop = () => {
     { id: 3, name: "Photography", description: "Capture your journey's moments" },
   ];
 
-  const moreItems = [
-    { id: 9, name: "Vintage Postcards", price: "$14.99" },
-    { id: 10, name: "Explorer's Kit", price: "$99.99" },
-    { id: 11, name: "Adventure Calendar", price: "$22.99" },
-    { id: 12, name: "Travel Journal Set", price: "$29.99" },
-  ];
 
   const productsPerPage = 4;
   const moreItemsPerPage = 4;
@@ -75,6 +92,15 @@ const Shop = () => {
     }
   };
 
+  // Reset pagination when filter changes
+  useEffect(() => {
+    setCurrentProductPage(0);
+    setCurrentMoreItemsPage(0);
+  }, [authorId, categoryId]);
+
+  // Get current author name for display
+  const currentAuthor = authorId ? authors.find(author => author.id === parseInt(authorId)) : null;
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
@@ -84,11 +110,33 @@ const Shop = () => {
         <div className="container mx-auto px-6 py-12">
           {/* Main Heading Section */}
           <div className="text-center mb-12">
-            <h1 className="text-5xl font-serif font-bold mb-6 text-foreground">Our Shop</h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-              Discover carefully curated items that embody the spirit of adventure and exploration. 
-              From travel essentials to inspirational books, find everything you need for your next journey.
-            </p>
+            {currentAuthor ? (
+              <>
+                <div className="mb-4">
+                  <button 
+                    onClick={() => navigate("/shop")}
+                    className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                  >
+                    ← Back to All Products
+                  </button>
+                </div>
+                <h1 className="text-5xl font-serif font-bold mb-6 text-foreground">
+                  {currentAuthor.name}'s Works
+                </h1>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
+                  Explore the complete collection of works by {currentAuthor.name}. 
+                  From adventure tales to travel guides, discover their unique perspective on exploration.
+                </p>
+              </>
+            ) : (
+              <>
+                <h1 className="text-5xl font-serif font-bold mb-6 text-foreground">Our Shop</h1>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
+                  Discover carefully curated items that embody the spirit of adventure and exploration. 
+                  From travel essentials to inspirational books, find everything you need for your next journey.
+                </p>
+              </>
+            )}
             <button className="flex items-center gap-2 bg-muted text-foreground px-6 py-3 rounded-md font-medium hover:bg-accent transition-colors duration-300 mx-auto">
               <Filter size={20} />
               Filter Products
@@ -150,9 +198,39 @@ const Shop = () => {
             </div>
           </div>
 
+          {/* Shop by Author Section - Only show when not filtering by author */}
+          {!authorId && (
+            <div className="mb-20">
+              <h2 className="text-3xl font-serif font-bold text-center mb-12 text-foreground">Shop by Author</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {authors.slice(0, 8).map((author) => (
+                  <div
+                    key={author.id}
+                    className="border border-border rounded-lg overflow-hidden hover:shadow-elegant transition-all duration-300 group cursor-pointer bg-card"
+                    onClick={() => navigate(`/shop/author/${author.id}`)}
+                  >
+                    <div className="bg-muted h-32 flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
+                      <span className="text-muted-foreground text-sm font-medium">Author Photo</span>
+                    </div>
+                    
+                    <div className="p-4 text-center">
+                      <h3 className="text-lg font-serif font-semibold group-hover:text-primary transition-colors duration-300 text-foreground">
+                        {author.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        View Works
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Shop by Category Section */}
-          <div className="mb-20">
-            <h2 className="text-3xl font-serif font-bold text-center mb-12 text-foreground">Shop by Category</h2>
+          {!authorId && (
+            <div className="mb-20">
+              <h2 className="text-3xl font-serif font-bold text-center mb-12 text-foreground">Shop by Category</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {categories.map((category) => (
                 <div
@@ -175,7 +253,8 @@ const Shop = () => {
                 </div>
               ))}
             </div>
-          </div>
+            </div>
+          )}
 
           {/* More Items Section */}
           <div className="mb-20">
