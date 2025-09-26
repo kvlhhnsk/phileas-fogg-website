@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { ShoppingBag, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { Button } from './ui/button';
 import paintSplatter from '@/assets/paint-splatter.png';
 
@@ -62,10 +62,6 @@ export const FloatingShopButton = () => {
             filter: 'hue-rotate(210deg) saturate(1.5) brightness(0.8)',
           }}
         >
-          {/* Shopping bag icon centered */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <ShoppingBag className="h-5 w-5 text-white drop-shadow-sm" />
-          </div>
           
           {/* Expandable text on hover */}
           <div className="absolute right-full top-1/2 -translate-y-1/2 mr-3 bg-primary text-primary-foreground px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0 whitespace-nowrap shadow-lg">
