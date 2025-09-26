@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ShoppingBag, X } from 'lucide-react';
 import { Button } from './ui/button';
+import paintSplatter from '@/assets/paint-splatter.png';
 
 export const FloatingShopButton = () => {
   const navigate = useNavigate();
@@ -49,28 +50,39 @@ export const FloatingShopButton = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50 animate-fade-in">
       <div className="relative group">
-        {/* Main Button */}
-        <Button
+        {/* Paint Splatter Button */}
+        <div
           onClick={handleShopClick}
-          className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full h-14 w-14 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse group-hover:animate-none relative overflow-hidden"
-          size="icon"
+          className="relative w-16 h-16 cursor-pointer transition-all duration-300 hover:scale-110 drop-shadow-lg hover:drop-shadow-xl"
+          style={{
+            backgroundImage: `url(${paintSplatter})`,
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            filter: 'hue-rotate(210deg) saturate(1.5) brightness(0.8)',
+          }}
         >
-          <ShoppingBag className="h-6 w-6" />
+          {/* Shopping bag icon centered */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <ShoppingBag className="h-5 w-5 text-white drop-shadow-sm" />
+          </div>
           
           {/* Expandable text on hover */}
-          <div className="absolute left-0 top-0 h-full bg-primary text-primary-foreground rounded-full flex items-center pl-4 pr-16 opacity-0 group-hover:opacity-100 transition-all duration-300 transform -translate-x-full group-hover:translate-x-0 whitespace-nowrap">
+          <div className="absolute right-full top-1/2 -translate-y-1/2 mr-3 bg-primary text-primary-foreground px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0 whitespace-nowrap shadow-lg">
             <span className="text-sm font-medium">Visit Shop</span>
+            {/* Arrow pointer */}
+            <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-primary"></div>
           </div>
-        </Button>
+        </div>
 
         {/* Close button */}
         <Button
           onClick={handleClose}
           variant="ghost"
           size="icon"
-          className="absolute -top-2 -right-2 h-6 w-6 bg-destructive text-destructive-foreground hover:bg-destructive/90 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300"
+          className="absolute -top-1 -right-1 h-5 w-5 bg-destructive text-destructive-foreground hover:bg-destructive/90 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300"
         >
-          <X className="h-3 w-3" />
+          <X className="h-2.5 w-2.5" />
         </Button>
       </div>
     </div>
