@@ -100,8 +100,11 @@ const AuthorDetail = () => {
                     {isExpanded ? 'Read Less' : 'Read More'}
                   </button>
                 </div>
-                <Button className="px-8 py-3 bg-accent text-accent-foreground hover:bg-accent/90 transition-colors duration-300 rounded-lg font-medium">
-                  Contact Author
+                <Button 
+                  onClick={() => navigate("/shop")} // TODO: Filter by author when functionality is implemented
+                  className="px-8 py-3 bg-accent text-accent-foreground hover:bg-accent/90 transition-colors duration-300 rounded-lg font-medium"
+                >
+                  Shop Author's Works
                 </Button>
               </div>
             </div>
