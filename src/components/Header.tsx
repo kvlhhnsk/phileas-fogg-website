@@ -1,20 +1,17 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, ChevronDown } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { itemCount } = useCart();
-
-  const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Blog", path: "/blog" },
-    { name: "Shop", path: "/shop" },
-    { name: "Authors", path: "/authors" },
-    { name: "Cart", path: "/cart" }
-  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -32,26 +29,122 @@ const Header = () => {
 
           {/* Navigation - Right Side */}
           <nav className="flex items-center space-x-8">
-            {navItems.slice(0, -1).map((item) => (
-              <button
-                key={item.name}
-                onClick={() => navigate(item.path)}
-                className={`
-                  relative px-2 py-1 text-sm font-medium transition-all duration-300
-                  ${location.pathname === item.path 
-                    ? 'text-primary' 
-                    : 'text-muted-foreground hover:text-foreground'
-                  }
-                  after:content-[''] after:absolute after:w-full after:scale-x-0 
-                  after:h-0.5 after:bottom-0 after:left-0 after:bg-primary 
-                  after:origin-bottom-right after:transition-transform after:duration-300 
-                  hover:after:scale-x-100 hover:after:origin-bottom-left
-                  ${location.pathname === item.path ? 'after:scale-x-100' : ''}
-                `}
-              >
-                {item.name}
-              </button>
-            ))}
+            {/* Home */}
+            <button
+              onClick={() => navigate("/")}
+              className={`
+                relative px-2 py-1 text-sm font-medium transition-all duration-300
+                ${location.pathname === "/" 
+                  ? 'text-primary' 
+                  : 'text-muted-foreground hover:text-foreground'
+                }
+                after:content-[''] after:absolute after:w-full after:scale-x-0 
+                after:h-0.5 after:bottom-0 after:left-0 after:bg-primary 
+                after:origin-bottom-right after:transition-transform after:duration-300 
+                hover:after:scale-x-100 hover:after:origin-bottom-left
+                ${location.pathname === "/" ? 'after:scale-x-100' : ''}
+              `}
+            >
+              Home
+            </button>
+
+            {/* About */}
+            <button
+              onClick={() => navigate("/about")}
+              className={`
+                relative px-2 py-1 text-sm font-medium transition-all duration-300
+                ${location.pathname === "/about" 
+                  ? 'text-primary' 
+                  : 'text-muted-foreground hover:text-foreground'
+                }
+                after:content-[''] after:absolute after:w-full after:scale-x-0 
+                after:h-0.5 after:bottom-0 after:left-0 after:bg-primary 
+                after:origin-bottom-right after:transition-transform after:duration-300 
+                hover:after:scale-x-100 hover:after:origin-bottom-left
+                ${location.pathname === "/about" ? 'after:scale-x-100' : ''}
+              `}
+            >
+              About
+            </button>
+
+            {/* Exhibitions Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 px-2 py-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300 focus:outline-none">
+                Exhibitions
+                <ChevronDown size={14} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-40">
+                <DropdownMenuItem 
+                  onClick={() => navigate("/exhibitions")}
+                  className="cursor-pointer"
+                >
+                  Exhibitions
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => navigate("/excursions")}
+                  className="cursor-pointer"
+                >
+                  Excursions
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Blog */}
+            <button
+              onClick={() => navigate("/blog")}
+              className={`
+                relative px-2 py-1 text-sm font-medium transition-all duration-300
+                ${location.pathname === "/blog" 
+                  ? 'text-primary' 
+                  : 'text-muted-foreground hover:text-foreground'
+                }
+                after:content-[''] after:absolute after:w-full after:scale-x-0 
+                after:h-0.5 after:bottom-0 after:left-0 after:bg-primary 
+                after:origin-bottom-right after:transition-transform after:duration-300 
+                hover:after:scale-x-100 hover:after:origin-bottom-left
+                ${location.pathname === "/blog" ? 'after:scale-x-100' : ''}
+              `}
+            >
+              Blog
+            </button>
+
+            {/* Shop */}
+            <button
+              onClick={() => navigate("/shop")}
+              className={`
+                relative px-2 py-1 text-sm font-medium transition-all duration-300
+                ${location.pathname === "/shop" 
+                  ? 'text-primary' 
+                  : 'text-muted-foreground hover:text-foreground'
+                }
+                after:content-[''] after:absolute after:w-full after:scale-x-0 
+                after:h-0.5 after:bottom-0 after:left-0 after:bg-primary 
+                after:origin-bottom-right after:transition-transform after:duration-300 
+                hover:after:scale-x-100 hover:after:origin-bottom-left
+                ${location.pathname === "/shop" ? 'after:scale-x-100' : ''}
+              `}
+            >
+              Shop
+            </button>
+
+            {/* Authors */}
+            <button
+              onClick={() => navigate("/authors")}
+              className={`
+                relative px-2 py-1 text-sm font-medium transition-all duration-300
+                ${location.pathname === "/authors" 
+                  ? 'text-primary' 
+                  : 'text-muted-foreground hover:text-foreground'
+                }
+                after:content-[''] after:absolute after:w-full after:scale-x-0 
+                after:h-0.5 after:bottom-0 after:left-0 after:bg-primary 
+                after:origin-bottom-right after:transition-transform after:duration-300 
+                hover:after:scale-x-100 hover:after:origin-bottom-left
+                ${location.pathname === "/authors" ? 'after:scale-x-100' : ''}
+              `}
+            >
+              Authors
+            </button>
             
             {/* Cart Icon with Badge */}
             <button
