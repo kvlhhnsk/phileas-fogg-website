@@ -61,14 +61,14 @@ const BlogPost = () => {
         The final leg of our expedition reaches major historical centers where trade routes converged. In these locations, we'll explore museums, archaeological sites, and meet with local communities whose ancestors facilitated the cultural exchanges that shaped our modern world.`
       },
       "excursion-1": {
-        title: "Alpine Adventure Trek: Mountain Wilderness Expedition",
-        content: `Embark on a transformative 14-day journey through pristine alpine wilderness, where dramatic landscapes and challenging terrain provide the perfect setting for personal growth and natural discovery.
+        title: "Artisan Heritage Trail: Cultural Arts Immersion Experience",
+        content: `Join us for an extraordinary 10-day cultural immersion that takes you through historic art villages and workshops, where traditional craftsmanship meets contemporary artistic expression. This unique journey celebrates the living heritage of artisan communities.
 
-        Our expedition begins with comprehensive preparation and acclimatization in base camp, where experienced guides share essential mountain skills including navigation, weather assessment, and safety protocols. This foundation ensures every participant can fully engage with the alpine environment.
+        Our adventure begins in renowned pottery villages, where master ceramicists share techniques passed down through generations. Participants learn traditional throwing methods, glazing secrets, and firing processes while creating their own unique pieces to take home.
 
-        Daily treks take us through diverse mountain ecosystems, from dense forest valleys to stark rocky peaks above the treeline. Each day presents new challenges and rewards, with opportunities to observe wildlife, study geology, and develop a deeper appreciation for mountain environments.
+        We continue through textile weaving communities, where vibrant patterns tell stories of cultural identity and regional history. Experience hands-on workshops in natural dyeing, traditional loom work, and contemporary fiber arts that bridge ancient techniques with modern artistic vision.
 
-        The culmination of our journey includes a multi-day traverse of a remote mountain range, camping under star-filled skies and experiencing the profound silence that only exists in truly wild places. This immersive experience often leads to lasting personal transformation and environmental awareness.`
+        The journey culminates in collaborative art projects with local artists, creating community murals and installations that celebrate the intersection of traditional craft and contemporary creativity. This immersive experience fosters deep cultural exchange and lasting artistic inspiration.`
       },
       "1": {
         title: "Mountain Expedition Chronicles",
