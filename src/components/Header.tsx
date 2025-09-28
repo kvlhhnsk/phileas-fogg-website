@@ -108,25 +108,6 @@ const Header = () => {
               Blog
             </button>
 
-            {/* Shop */}
-            <button
-              onClick={() => navigate("/shop")}
-              className={`
-                relative px-2 py-1 text-sm font-medium transition-all duration-300
-                ${location.pathname === "/shop" 
-                  ? 'text-primary' 
-                  : 'text-muted-foreground hover:text-foreground'
-                }
-                after:content-[''] after:absolute after:w-full after:scale-x-0 
-                after:h-0.5 after:bottom-0 after:left-0 after:bg-primary 
-                after:origin-bottom-right after:transition-transform after:duration-300 
-                hover:after:scale-x-100 hover:after:origin-bottom-left
-                ${location.pathname === "/shop" ? 'after:scale-x-100' : ''}
-              `}
-            >
-              Shop
-            </button>
-
             {/* Authors */}
             <button
               onClick={() => navigate("/authors")}
@@ -144,6 +125,25 @@ const Header = () => {
               `}
             >
               Authors
+            </button>
+
+            {/* Shop */}
+            <button
+              onClick={() => navigate("/shop")}
+              className={`
+                relative px-2 py-1 text-sm font-medium transition-all duration-300
+                ${location.pathname === "/shop" 
+                  ? 'text-primary' 
+                  : 'text-muted-foreground hover:text-foreground'
+                }
+                after:content-[''] after:absolute after:w-full after:scale-x-0 
+                after:h-0.5 after:bottom-0 after:left-0 after:bg-primary 
+                after:origin-bottom-right after:transition-transform after:duration-300 
+                hover:after:scale-x-100 hover:after:origin-bottom-left
+                ${location.pathname === "/shop" ? 'after:scale-x-100' : ''}
+              `}
+            >
+              Shop
             </button>
             
             {/* Cart Icon with Badge */}
