@@ -16,10 +16,14 @@ const SplashPage = () => {
           <h1 className="text-4xl font-serif font-bold tracking-wide">
             Phileas Fogg
           </h1>
-          <p className="text-xl text-muted-foreground">Welcome to Our Gallery</p>
-          <p className="text-sm text-muted-foreground max-w-md mx-auto">
-            Discover extraordinary art exhibitions, explore curated collections, and embark on artistic journeys that inspire and transform.
-          </p>
+          <p className="text-xl text-muted-foreground">Welcome</p>
+        </div>
+
+        {/* Loading indicator */}
+        <div className="mt-12">
+          <div className="w-32 h-1 bg-muted rounded-full overflow-hidden">
+            <div className="h-full bg-primary rounded-full animate-slide-in-right"></div>
+          </div>
         </div>
       </main>
       <Footer />
