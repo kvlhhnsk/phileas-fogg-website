@@ -53,7 +53,7 @@ export const FloatingShopButton = () => {
         {/* Paint Splatter Button */}
         <div
           onClick={handleShopClick}
-          className="relative w-[5.25rem] h-[5.25rem] cursor-pointer transition-all duration-300 hover:scale-110 drop-shadow-lg hover:drop-shadow-xl"
+          className="relative w-[7.875rem] h-[7.875rem] cursor-pointer transition-all duration-300 hover:scale-110 drop-shadow-lg hover:drop-shadow-xl"
           style={{
             backgroundImage: `url(${paintSplatter})`,
             backgroundSize: 'contain',
