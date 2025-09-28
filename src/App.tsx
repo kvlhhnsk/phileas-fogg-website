@@ -48,7 +48,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/">
+        <BrowserRouter basename="/phileas-fogg-website">
           <GitHubPagesRedirect />
           <Routes>
             <Route path="/" element={<Index />} />
