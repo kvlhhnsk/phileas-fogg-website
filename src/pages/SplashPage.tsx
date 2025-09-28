@@ -11,7 +11,7 @@ const SplashPage = () => {
           <h1 className="text-6xl md:text-7xl font-serif font-bold tracking-wide">
             Phileas Fogg
           </h1>
-          <p className="text-3xl md:text-4xl text-muted-foreground">Welcome</p>
+          <p className="text-3xl md:text-4xl text-muted-foreground">Welcome to the fantastic world of Phileas Fogg!</p>
         </div>
 
         {/* Loading indicator */}
