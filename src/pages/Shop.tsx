@@ -47,9 +47,9 @@ const Shop = () => {
     : allMoreItems;
 
   const categories = [
-    { id: 1, name: "Travel Gear", description: "Essential items for your adventures" },
-    { id: 2, name: "Books & Maps", description: "Stories and guides for explorers" },
-    { id: 3, name: "Photography", description: "Capture your journey's moments" },
+    { id: 1, name: "Living Room", description: "Cozy and stylish pieces for your main living space" },
+    { id: 2, name: "Office", description: "Productive and inspiring items for your workspace" },
+    { id: 3, name: "Bedroom", description: "Comfortable and relaxing essentials for rest" },
   ];
 
 
@@ -274,10 +274,10 @@ const Shop = () => {
             </div>
           )}
 
-          {/* Shop by Category Section */}
+          {/* Shop by Room Section */}
           {!authorId && (
             <div className="mb-20">
-              <h2 className="text-3xl font-serif font-bold text-center mb-12 text-foreground">Shop by Category</h2>
+              <h2 className="text-3xl font-serif font-bold text-center mb-12 text-foreground">Shop by Room</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {categories.map((category) => (
                 <div
@@ -286,7 +286,7 @@ const Shop = () => {
                   onClick={() => navigate(`/shop/category/${category.id}`)}
                 >
                   <div className="bg-muted h-40 flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
-                    <span className="text-muted-foreground text-lg font-medium">Category</span>
+                    <span className="text-muted-foreground text-lg font-medium">Room</span>
                   </div>
                   
                   <div className="p-6 text-center">
