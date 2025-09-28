@@ -15,6 +15,7 @@ const ProductDetail = () => {
   const { toast } = useToast();
   const [quantity, setQuantity] = useState(1);
   const [currentRelatedPage, setCurrentRelatedPage] = useState(0);
+  const [currentUsersViewedPage, setCurrentUsersViewedPage] = useState(0);
 
   // Sample product data - would typically come from API or state management
   const product = {
@@ -36,12 +37,27 @@ const ProductDetail = () => {
     { id: 7, name: "World Atlas Collection", price: "$67.99" },
   ];
 
+  const usersAlsoViewedItems = [
+    { id: 8, name: "Mountain Hiking Guide", price: "$32.99" },
+    { id: 9, name: "Camping Essentials Kit", price: "$156.99" },
+    { id: 10, name: "Wildlife Field Notes", price: "$28.99" },
+    { id: 11, name: "Outdoor Photography Tips", price: "$39.99" },
+    { id: 12, name: "Navigation Tools Set", price: "$78.99" },
+    { id: 13, name: "Adventure Planning Journal", price: "$21.99" },
+  ];
+
   const itemsPerPage = 3;
   const totalPages = Math.ceil(relatedItems.length / itemsPerPage);
+  const totalUsersViewedPages = Math.ceil(usersAlsoViewedItems.length / itemsPerPage);
 
   const getCurrentRelatedItems = () => {
     const start = currentRelatedPage * itemsPerPage;
     return relatedItems.slice(start, start + itemsPerPage);
+  };
+
+  const getCurrentUsersViewedItems = () => {
+    const start = currentUsersViewedPage * itemsPerPage;
+    return usersAlsoViewedItems.slice(start, start + itemsPerPage);
   };
 
   const handleNextRelated = () => {
@@ -53,6 +69,18 @@ const ProductDetail = () => {
   const handlePrevRelated = () => {
     if (currentRelatedPage > 0) {
       setCurrentRelatedPage(prev => prev - 1);
+    }
+  };
+
+  const handleNextUsersViewed = () => {
+    if (currentUsersViewedPage < totalUsersViewedPages - 1) {
+      setCurrentUsersViewedPage(prev => prev + 1);
+    }
+  };
+
+  const handlePrevUsersViewed = () => {
+    if (currentUsersViewedPage > 0) {
+      setCurrentUsersViewedPage(prev => prev - 1);
     }
   };
 
@@ -202,6 +230,69 @@ const ProductDetail = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {getCurrentRelatedItems().map((item) => (
+                <div
+                  key={item.id}
+                  className="border border-border rounded-lg overflow-hidden hover:shadow-elegant transition-all duration-300 group cursor-pointer bg-card"
+                  onClick={() => navigate(`/shop/product/${item.id}`)}
+                >
+                  <div className="bg-muted h-48 flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
+                    <span className="text-muted-foreground">Item Photo</span>
+                  </div>
+                  
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors duration-300 text-foreground">
+                      {item.name}
+                    </h3>
+                    <p className="text-xl font-bold text-primary mb-3">
+                      {item.price}
+                    </p>
+                    <button 
+                      className="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition-colors duration-300"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        addToCart({
+                          id: item.id.toString(),
+                          name: item.name,
+                          price: item.price
+                        });
+                        toast({
+                          title: "Added to cart",
+                          description: `${item.name} added to your cart.`,
+                        });
+                      }}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Users Also Viewed Section */}
+          <div className="mb-20">
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-3xl font-serif font-bold text-foreground">Users Also Viewed</h2>
+              <div className="flex gap-2">
+                <button
+                  onClick={handlePrevUsersViewed}
+                  disabled={currentUsersViewedPage === 0}
+                  className="p-2 rounded-md border border-border hover:bg-muted transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button
+                  onClick={handleNextUsersViewed}
+                  disabled={currentUsersViewedPage >= totalUsersViewedPages - 1}
+                  className="p-2 rounded-md border border-border hover:bg-muted transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {getCurrentUsersViewedItems().map((item) => (
                 <div
                   key={item.id}
                   className="border border-border rounded-lg overflow-hidden hover:shadow-elegant transition-all duration-300 group cursor-pointer bg-card"
