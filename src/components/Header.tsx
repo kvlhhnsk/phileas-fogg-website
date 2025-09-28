@@ -17,6 +17,27 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
+          {/* Left Side - Splash Screen Link */}
+          <div className="flex-1">
+            <button
+              onClick={() => navigate("/splash")}
+              className={`
+                relative px-2 py-1 text-sm font-medium transition-all duration-300
+                ${location.pathname === "/splash" 
+                  ? 'text-primary' 
+                  : 'text-muted-foreground hover:text-foreground'
+                }
+                after:content-[''] after:absolute after:w-full after:scale-x-0 
+                after:h-0.5 after:bottom-0 after:left-0 after:bg-primary 
+                after:origin-bottom-right after:transition-transform after:duration-300 
+                hover:after:scale-x-100 hover:after:origin-bottom-left
+                ${location.pathname === "/splash" ? 'after:scale-x-100' : ''}
+              `}
+            >
+              Splash
+            </button>
+          </div>
+
           {/* Logo - Centered */}
           <div className="flex-1 flex justify-center">
             <button

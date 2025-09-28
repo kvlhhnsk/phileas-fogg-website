@@ -17,6 +17,7 @@ import AuthorDetail from "./pages/AuthorDetail";
 import Checkout from "./pages/Checkout";
 import Exhibitions from "./pages/Exhibitions";
 import Excursions from "./pages/Excursions";
+import SplashPage from "./pages/SplashPage";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 
@@ -51,6 +52,7 @@ const App = () => (
           <GitHubPagesRedirect />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/splash" element={<SplashPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/exhibitions" element={<Exhibitions />} />
             <Route path="/excursions" element={<Excursions />} />
