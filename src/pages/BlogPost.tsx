@@ -30,14 +30,14 @@ const BlogPost = () => {
         The centerpiece of the exhibition features recently discovered artifacts from a remote archaeological site, displayed publicly for the first time. These remarkable finds shed new light on ancient civilizations and their sophisticated understanding of astronomy, mathematics, and engineering.`
       },
       "exhibition-1": {
-        title: "Mountain Peaks Collection: Scaling New Heights",
-        content: `Experience the thrill and beauty of high-altitude exploration through our comprehensive collection of mountain expedition artifacts, photography, and personal accounts from some of the world's most challenging climbs.
+        title: "Contemporary Visions: Modern Art Showcase",
+        content: `Discover groundbreaking works by emerging and established contemporary artists in this carefully curated exhibition that explores the evolution of modern artistic expression and its impact on contemporary culture.
 
-        This exhibition showcases equipment evolution from early mountaineering attempts to modern climbing technology. Visitors can examine vintage ice axes, rope systems, and protective gear alongside contemporary equipment, understanding how technological advances have made previously impossible climbs achievable.
+        The exhibition features a diverse collection of paintings, sculptures, and mixed media installations that challenge traditional boundaries and invite viewers to explore new perspectives on art and society. Each piece has been selected for its innovative approach and meaningful contribution to the contemporary art dialogue.
 
-        Stunning large-format photography captures the raw beauty and danger of mountain environments. Each image tells a story of perseverance, teamwork, and the relentless pursuit of reaching new heights despite seemingly impossible odds.
+        Interactive gallery spaces allow visitors to engage with the artworks on multiple levels, from intimate viewing experiences to participatory installations that blur the line between observer and participant. Expert docents provide insights into artistic techniques, cultural contexts, and the stories behind each creation.
 
-        Personal journals and expedition logs provide intimate glimpses into the mindset of climbers facing extreme conditions. These first-hand accounts reveal the physical and psychological challenges that must be overcome to achieve success in the world's most demanding environments.`
+        Special programming includes artist talks, workshop sessions, and behind-the-scenes tours that offer deeper understanding of the creative process. This exhibition celebrates the power of contemporary art to inspire, challenge, and transform our understanding of the world around us.`
       },
       "exhibition-2": {
         title: "Ocean Depths Revealed: Maritime Exploration Treasures",
