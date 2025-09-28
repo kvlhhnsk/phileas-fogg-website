@@ -5,6 +5,7 @@ interface SplashScreenProps {
 }
 
 const SplashScreen = ({ onComplete }: SplashScreenProps) => {
+  console.log("SplashScreen component rendering");
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {

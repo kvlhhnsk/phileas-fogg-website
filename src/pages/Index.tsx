@@ -3,6 +3,7 @@ import SplashScreen from "@/components/SplashScreen";
 import HomePage from "./HomePage";
 
 const Index = () => {
+  console.log("Index component rendering");
   const [showSplash, setShowSplash] = useState(true);
   const [hasVisited, setHasVisited] = useState(false);
 

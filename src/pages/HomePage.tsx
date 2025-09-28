@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Carousel from "@/components/Carousel";
 
 const HomePage = () => {
+  console.log("HomePage component rendering");
   const navigate = useNavigate();
 
   // Carousel data
