@@ -168,103 +168,37 @@ const BlogPost = () => {
         {/* Book Ticket Section */}
         {(id?.includes('exhibition') || id?.includes('excursion')) && (
           <section className="bg-card border-t border-border py-16">
-            <div className="container mx-auto px-6 max-w-2xl">
+            <div className="container mx-auto px-6 max-w-md">
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-serif font-bold mb-4 text-foreground">
-                  {id?.includes('exhibition') ? 'Book Exhibition Ticket' : 'Book Your Excursion'}
+                <h2 className="text-3xl font-serif font-bold mb-6 text-foreground">
+                  Book Ticket
                 </h2>
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                  {id?.includes('exhibition') 
-                    ? 'Secure your spot to experience this extraordinary exhibition' 
-                    : 'Reserve your place on this unforgettable adventure'}
-                </p>
               </div>
 
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Full Name
-                    </label>
-                    <input 
-                      type="text"
-                      className="w-full px-4 py-3 border border-border rounded-md bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
-                      placeholder="Enter your full name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Email Address
-                    </label>
-                    <input 
-                      type="email"
-                      className="w-full px-4 py-3 border border-border rounded-md bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
-                      placeholder="Enter your email"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Phone Number
-                    </label>
-                    <input 
-                      type="tel"
-                      className="w-full px-4 py-3 border border-border rounded-md bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
-                      placeholder="Enter your phone number"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      {id?.includes('exhibition') ? 'Number of Tickets' : 'Number of Participants'}
-                    </label>
-                    <select className="w-full px-4 py-3 border border-border rounded-md bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5+</option>
-                    </select>
-                  </div>
-                </div>
-
-                {id?.includes('exhibition') && (
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Preferred Visit Date
-                    </label>
-                    <input 
-                      type="date"
-                      className="w-full px-4 py-3 border border-border rounded-md bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
-                    />
-                  </div>
-                )}
-
+              <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Special Requirements or Comments
+                    Number of Tickets
                   </label>
-                  <textarea 
-                    rows={4}
-                    className="w-full px-4 py-3 border border-border rounded-md bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
-                    placeholder="Any special requirements, dietary restrictions, or additional information..."
-                  />
+                  <select className="w-full px-4 py-3 border border-border rounded-md bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5+</option>
+                  </select>
                 </div>
 
                 <div className="text-center">
                   <button 
                     type="button"
-                    className="bg-primary text-primary-foreground px-8 py-4 rounded-md font-medium hover:bg-primary/90 transition-colors duration-300 text-lg"
+                    className="bg-primary text-primary-foreground px-8 py-4 rounded-md font-medium hover:bg-primary/90 transition-colors duration-300 text-lg w-full"
                     onClick={() => alert('Booking feature coming soon! We will contact you to confirm your reservation.')}
                   >
-                    {id?.includes('exhibition') ? 'Book Tickets' : 'Reserve Your Spot'}
+                    Reserve Spot
                   </button>
-                  <p className="text-sm text-muted-foreground mt-4">
-                    No payment required now. We'll contact you to confirm details and arrange payment.
-                  </p>
                 </div>
-              </form>
+              </div>
             </div>
           </section>
         )}
