@@ -65,10 +65,10 @@ const About = () => {
             </Button>
             <Button 
               variant="outline"
-              onClick={() => navigate("/about")}
+              onClick={() => navigate("/authors")}
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300"
             >
-              About
+              Authors
             </Button>
           </div>
         </section>
@@ -111,10 +111,10 @@ const About = () => {
             </p>
             <div className="flex gap-6 justify-center">
               <Button 
-                onClick={() => navigate("/gallery")}
+                onClick={() => navigate("/blog")}
                 className="bg-yellow text-yellow-foreground hover:bg-yellow/90 px-10 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
               >
-                Gallery
+                Blog
               </Button>
               <Button 
                 onClick={() => navigate("/authors")}
