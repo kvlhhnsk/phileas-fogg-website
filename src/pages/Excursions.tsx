@@ -16,10 +16,10 @@ const Excursions = () => {
   const excursions = [
     { 
       id: "excursion-1", 
-      title: "Alpine Adventure Trek", 
-      excerpt: "Multi-day expedition through pristine mountain wilderness.", 
+      title: "Artist Studio Visit", 
+      excerpt: "Behind-the-scenes experience with renowned local artists in their private studios.", 
       dates: "July 2024",
-      duration: "14 Days"
+      duration: "1 Day"
     },
     { 
       id: "excursion-2", 
