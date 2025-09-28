@@ -11,6 +11,7 @@ const Shop = () => {
   const { authorId, categoryId } = useParams();
   const [currentProductPage, setCurrentProductPage] = useState(0);
   const [currentMoreItemsPage, setCurrentMoreItemsPage] = useState(0);
+  const [currentAuthorPage, setCurrentAuthorPage] = useState(0);
 
   // Authors data to match with Authors.tsx
   const authors = Array.from({ length: 12 }, (_, i) => ({
@@ -54,6 +55,7 @@ const Shop = () => {
 
   const productsPerPage = 4;
   const moreItemsPerPage = 4;
+  const authorsPerPage = 6;
 
   const getCurrentProducts = () => {
     const start = currentProductPage * productsPerPage;
@@ -65,8 +67,14 @@ const Shop = () => {
     return moreItems.slice(start, start + moreItemsPerPage);
   };
 
+  const getCurrentAuthors = () => {
+    const start = currentAuthorPage * authorsPerPage;
+    return authors.slice(start, start + authorsPerPage);
+  };
+
   const totalProductPages = Math.ceil(products.length / productsPerPage);
   const totalMoreItemsPages = Math.ceil(moreItems.length / moreItemsPerPage);
+  const totalAuthorPages = Math.ceil(authors.length / authorsPerPage);
 
   const handleNextProducts = () => {
     if (currentProductPage < totalProductPages - 1) {
@@ -92,10 +100,23 @@ const Shop = () => {
     }
   };
 
+  const handleNextAuthors = () => {
+    if (currentAuthorPage < totalAuthorPages - 1) {
+      setCurrentAuthorPage(prev => prev + 1);
+    }
+  };
+
+  const handlePrevAuthors = () => {
+    if (currentAuthorPage > 0) {
+      setCurrentAuthorPage(prev => prev - 1);
+    }
+  };
+
   // Reset pagination when filter changes
   useEffect(() => {
     setCurrentProductPage(0);
     setCurrentMoreItemsPage(0);
+    setCurrentAuthorPage(0);
   }, [authorId, categoryId]);
 
   // Get current author name for display
@@ -201,9 +222,27 @@ const Shop = () => {
           {/* Shop by Author Section - Only show when not filtering by author */}
           {!authorId && (
             <div className="mb-20">
-              <h2 className="text-3xl font-serif font-bold text-center mb-12 text-foreground">Shop by Author</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {authors.slice(0, 8).map((author) => (
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-3xl font-serif font-bold text-foreground">Shop by Author</h2>
+                <div className="flex gap-2">
+                  <button
+                    onClick={handlePrevAuthors}
+                    disabled={currentAuthorPage === 0}
+                    className="p-2 rounded-md border border-border hover:bg-muted transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={handleNextAuthors}
+                    disabled={currentAuthorPage >= totalAuthorPages - 1}
+                    className="p-2 rounded-md border border-border hover:bg-muted transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 mb-8">
+                {getCurrentAuthors().map((author) => (
                   <div
                     key={author.id}
                     className="border border-border rounded-lg overflow-hidden hover:shadow-elegant transition-all duration-300 group cursor-pointer bg-card"
@@ -223,6 +262,14 @@ const Shop = () => {
                     </div>
                   </div>
                 ))}
+              </div>
+              <div className="text-center">
+                <button
+                  onClick={() => navigate('/authors')}
+                  className="bg-secondary text-secondary-foreground px-6 py-3 rounded-md font-medium hover:bg-secondary/80 transition-colors duration-300"
+                >
+                  View All Authors ({authors.length})
+                </button>
               </div>
             </div>
           )}
