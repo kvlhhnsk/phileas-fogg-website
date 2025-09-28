@@ -47,7 +47,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename={import.meta.env.DEV ? "/" : "/phileas-fogg-website"}>
+        <BrowserRouter basename="/">
           <GitHubPagesRedirect />
           <Routes>
             <Route path="/" element={<Index />} />
