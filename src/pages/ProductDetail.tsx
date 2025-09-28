@@ -272,7 +272,7 @@ const ProductDetail = () => {
           {/* Users Also Viewed Section */}
           <div className="mb-20">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-serif font-bold text-foreground">Users Also Viewed</h2>
+              <h2 className="text-3xl font-serif font-bold text-foreground">Similar Items</h2>
               <div className="flex gap-2">
                 <button
                   onClick={handlePrevUsersViewed}
