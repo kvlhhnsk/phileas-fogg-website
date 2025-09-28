@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ChevronLeft, ChevronRight, Filter } from "lucide-react";
+import { ChevronLeft, ChevronRight, Filter, Search } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CategoriesHeader from "@/components/CategoriesHeader";
@@ -12,6 +12,7 @@ const Shop = () => {
   const [currentProductPage, setCurrentProductPage] = useState(0);
   const [currentMoreItemsPage, setCurrentMoreItemsPage] = useState(0);
   const [currentAuthorPage, setCurrentAuthorPage] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Authors data to match with Authors.tsx
   const authors = Array.from({ length: 12 }, (_, i) => ({
@@ -37,14 +38,39 @@ const Shop = () => {
     { id: 12, name: "Travel Journal Set", price: "$29.99", authorId: 8 },
   ];
 
-  // Filter products based on author or category
-  const products = authorId 
-    ? allProducts.filter(product => product.authorId === parseInt(authorId))
-    : allProducts;
+  // Filter products based on author, category, and search query
+  const filteredProducts = useMemo(() => {
+    let filtered = authorId 
+      ? allProducts.filter(product => product.authorId === parseInt(authorId))
+      : allProducts;
+    
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase().trim();
+      filtered = filtered.filter(product => 
+        product.name.toLowerCase().includes(query)
+      );
+    }
+    
+    return filtered;
+  }, [authorId, searchQuery, allProducts]);
   
-  const moreItems = authorId 
-    ? allMoreItems.filter(item => item.authorId === parseInt(authorId))
-    : allMoreItems;
+  const filteredMoreItems = useMemo(() => {
+    let filtered = authorId 
+      ? allMoreItems.filter(item => item.authorId === parseInt(authorId))
+      : allMoreItems;
+    
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase().trim();
+      filtered = filtered.filter(item => 
+        item.name.toLowerCase().includes(query)
+      );
+    }
+    
+    return filtered;
+  }, [authorId, searchQuery, allMoreItems]);
+
+  const products = filteredProducts;
+  const moreItems = filteredMoreItems;
 
   const categories = [
     { id: 1, name: "Living Room", description: "Cozy and stylish pieces for your main living space" },
@@ -117,7 +143,7 @@ const Shop = () => {
     setCurrentProductPage(0);
     setCurrentMoreItemsPage(0);
     setCurrentAuthorPage(0);
-  }, [authorId, categoryId]);
+  }, [authorId, categoryId, searchQuery]);
 
   // Get current author name for display
   const currentAuthor = authorId ? authors.find(author => author.id === parseInt(authorId)) : null;
@@ -158,11 +184,41 @@ const Shop = () => {
                 </p>
               </>
             )}
-            <button className="flex items-center gap-2 bg-muted text-foreground px-6 py-3 rounded-md font-medium hover:bg-accent transition-colors duration-300 mx-auto">
-              <Filter size={20} />
-              Filter Products
-            </button>
+            
+            {/* Search and Filter Controls */}
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              {/* Search Input */}
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                <input
+                  type="text"
+                  placeholder="Search products..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 pr-4 py-3 bg-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 w-64"
+                  maxLength={100}
+                />
+              </div>
+              
+              {/* Filter Button */}
+              <button className="flex items-center gap-2 bg-muted text-foreground px-6 py-3 rounded-md font-medium hover:bg-accent transition-colors duration-300">
+                <Filter size={20} />
+                Filter Products
+              </button>
+            </div>
           </div>
+
+          {/* Search Results Info */}
+          {searchQuery && (
+            <div className="text-center mb-8">
+              <p className="text-muted-foreground">
+                {products.length === 0 && moreItems.length === 0
+                  ? `No products found for "${searchQuery}"`
+                  : `${products.length + moreItems.length} product${products.length + moreItems.length === 1 ? '' : 's'} found for "${searchQuery}"`
+                }
+              </p>
+            </div>
+          )}
 
           {/* Product Grid Section */}
           <div className="mb-20">
