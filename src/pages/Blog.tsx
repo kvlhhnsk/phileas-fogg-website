@@ -66,40 +66,32 @@ const Blog = () => {
           </div>
 
           {/* Blog Post Grid */}
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-serif font-bold text-center mb-12 text-foreground">Recent Stories</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
               {blogPosts.map((post) => (
-                <article 
+                <div 
                   key={post.id}
-                  className="border border-border rounded-lg overflow-hidden hover:shadow-elegant transition-all duration-300 group cursor-pointer bg-card"
+                  className="relative aspect-square overflow-hidden group cursor-pointer"
                   onClick={() => navigate(`/blog/${post.id}`)}
                 >
-                  <div className="bg-muted h-48 flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
-                    <span className="text-muted-foreground">Cover Photo</span>
+                  <div className="absolute inset-0 bg-muted flex items-center justify-center">
+                    <span className="text-muted-foreground">Story Photo</span>
                   </div>
                   
-                  <div className="p-6">
-                    <h3 className="text-xl font-serif font-semibold mb-3 group-hover:text-primary transition-colors duration-300 text-foreground">
+                  {/* Overlay with text */}
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <h3 className="text-white text-lg font-serif font-semibold mb-2">
                       {post.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    <div className="text-white/80 text-sm mb-2">
+                      January {post.id}, 2024
+                    </div>
+                    <p className="text-white/90 text-sm leading-relaxed">
                       {post.excerpt}
                     </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-muted-foreground">January {post.id}, 2024</span>
-                      <button 
-                        className="text-primary hover:text-primary/80 transition-colors duration-300 font-medium text-sm"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          navigate(`/blog/${post.id}`);
-                        }}
-                      >
-                        Read More →
-                      </button>
-                    </div>
                   </div>
-                </article>
+                </div>
               ))}
             </div>
           </div>
