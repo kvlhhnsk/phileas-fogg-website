@@ -61,14 +61,14 @@ const BlogPost = () => {
         The final leg of our expedition reaches major historical centers where trade routes converged. In these locations, we'll explore museums, archaeological sites, and meet with local communities whose ancestors facilitated the cultural exchanges that shaped our modern world.`
       },
       "excursion-1": {
-        title: "Artisan Heritage Trail: Cultural Arts Immersion Experience",
-        content: `Join us for an extraordinary 10-day cultural immersion that takes you through historic art villages and workshops, where traditional craftsmanship meets contemporary artistic expression. This unique journey celebrates the living heritage of artisan communities.
+        title: "Artist Studio Visit: Behind the Creative Process",
+        content: `Join us for an intimate one-day excursion to visit a renowned local artist in their private studio. This exclusive experience offers a rare glimpse into the creative process and artistic inspiration behind some of the most celebrated contemporary works.
 
-        Our adventure begins in renowned pottery villages, where master ceramicists share techniques passed down through generations. Participants learn traditional throwing methods, glazing secrets, and firing processes while creating their own unique pieces to take home.
+        Our day begins with a guided tour of the artist's workspace, where you'll see works in progress and learn about the techniques, materials, and creative decisions that shape each piece. The artist will share personal stories about their artistic journey and the inspiration behind their most famous works.
 
-        We continue through textile weaving communities, where vibrant patterns tell stories of cultural identity and regional history. Experience hands-on workshops in natural dyeing, traditional loom work, and contemporary fiber arts that bridge ancient techniques with modern artistic vision.
+        Following the studio tour, participate in a hands-on workshop where you'll try your hand at the artist's signature techniques. Whether it's painting, sculpture, or mixed media, you'll gain practical experience while receiving personalized guidance from a master of their craft.
 
-        The journey culminates in collaborative art projects with local artists, creating community murals and installations that celebrate the intersection of traditional craft and contemporary creativity. This immersive experience fosters deep cultural exchange and lasting artistic inspiration.`
+        The excursion concludes with an exclusive viewing of pieces not available to the public, followed by refreshments and an opportunity for intimate conversation with the artist. This unique experience provides both artistic inspiration and valuable insights into the professional art world.`
       },
       "1": {
         title: "Mountain Expedition Chronicles",
