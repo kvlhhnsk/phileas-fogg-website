@@ -47,20 +47,14 @@ const AuthorDetail = () => {
         <section className="py-16 text-center border-b border-border">
           <div className="container mx-auto px-6">
             <h1 className="text-4xl md:text-5xl font-serif font-bold mb-8">
-              Meet Our Featured Author
+              Meet Author {id}
             </h1>
-            <div className="flex gap-4 justify-center">
+            <div className="flex justify-center">
               <button 
-                onClick={() => navigate("/shop")}
+                onClick={() => navigate(`/shop/author/${id}`)}
                 className="px-8 py-3 bg-foreground text-background hover:bg-foreground/90 transition-colors duration-300 rounded-lg font-medium"
               >
                 Shop
-              </button>
-              <button 
-                onClick={() => navigate("/about")}
-                className="px-8 py-3 border border-border hover:bg-muted transition-colors duration-300 rounded-lg font-medium"
-              >
-                About
               </button>
             </div>
           </div>
