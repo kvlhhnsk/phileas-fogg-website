@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import { FloatingShopButton } from "./components/FloatingShopButton";
 import Index from "./pages/Index";
@@ -18,8 +18,28 @@ import Checkout from "./pages/Checkout";
 import Exhibitions from "./pages/Exhibitions";
 import Excursions from "./pages/Excursions";
 import NotFound from "./pages/NotFound";
+import { useEffect } from "react";
 
 const queryClient = new QueryClient();
+
+// Component to handle GitHub Pages redirect
+const GitHubPagesRedirect = () => {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    // Check if we have a redirect URL from the 404 page
+    const redirect = sessionStorage.redirect;
+    if (redirect) {
+      sessionStorage.removeItem('redirect');
+      // Extract the path from the full URL
+      const url = new URL(redirect);
+      const path = url.pathname.replace('/phileas-fogg-website', '');
+      navigate(path || '/');
+    }
+  }, [navigate]);
+  
+  return null;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -27,7 +47,8 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename="/phileas-fogg-website">
+          <GitHubPagesRedirect />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
